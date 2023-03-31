@@ -23,25 +23,21 @@ function App() {
   return (
     <>
     <Navbar/>
-      {
-        (() => {
-          switch (page) {
-
-
-
-            case HOME_PAGE:
-              return  <Home/>;
-            
-
-            default:
-              return <Home/> ;
-          }
-        })
-      }
+    <Home/>
     </>
-
-
   );
 }
 
 export default App;
+
+
+// {
+//   (() => {
+//     switch (page) {
+//       case HOME_PAGE:
+//         return  <Home/>;
+//       default:
+//         return <Home/> ;
+//     }
+//   })
+// }
