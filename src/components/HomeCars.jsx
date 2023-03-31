@@ -7,16 +7,16 @@ export default function HomeCars({cars}){
 
 
     return(
-        <div className="w-full border border-red-500 h-[54vh] p-5">
+        <div className="w-full h-[54vh] p-5">
                 <div className="w-full flex justify-center items-center ">
-                    <p className="bg-gradient-to-r from-sky-800 to-violet-700 bg-clip-text text-transparent font-extrabold text-3xl">Exquisite choices</p>
+                    <p className="mb-4  font-semibold px-3 py-1 rounded-lg text-[17px] text-blue-800 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">Exquisite choices</p>
                 </div>
 
 
-                <div className="w-full border border-green-500 h-[45vh] overflow-scroll flex flex-row flex-wrap gap-8 p-4 justify-center items-center">
+                <div className="w-full   h-[65vh] overflow-scroll flex flex-row flex-wrap gap-8 p-4 justify-center items-center ">
                     {
                         cars.length>0
-                        ?cars.map(element=><CarModal element={element}></CarModal>)
+                        ?cars.map(element=><CarModal key={element.id} element={element}></CarModal>)
                         :<div className="w-full"><Empty /></div>
                         
                         
@@ -25,3 +25,5 @@ export default function HomeCars({cars}){
         </div>
     )
 }
+
+
