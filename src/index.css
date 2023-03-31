@@ -10,9 +10,62 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.menu-btn{
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 40px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  /* background-color: white; */
+  cursor: pointer;
+  color: #240943;
+  margin-right: 0px;
+  border-radius: 50%;
+  transition: 1.3s;
+  /* border: 2px solid green; */
+}
+
+.menu-btn:hover{
+  transform: rotate(1turn);
+  
+}
+
+.test-drive{
+  background-image: url("./components/images/cover-bg.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+
+@media (min-width:700px){
+  .test-drive{
+    background-position: bottom;
+    height: 350px;
+  }
+}
+
+
+
+@media (min-width:1200px){
+  .test-drive{
+    background-position: bottom;
+    height: 550px;
+  }
+
+  .test-drive-div{
+    background-position: bottom;
+    border: 2px solid red;
+    height: 550px;
+  }
 }
