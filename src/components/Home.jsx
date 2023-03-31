@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "./Navbar";
 import Filters from "./Filters";
+import HomeCars from "./HomeCars";
+import Data from "../services/Api";
 
 
 
@@ -11,6 +13,39 @@ import Filters from "./Filters";
 export default function Home() {
 
 
+    let [cars,setCars]=useState([]);
+    let [makers, setMakers] = useState([]);
+    let [makerCount,setMakerCount]=useState();
+
+    let api = new Data();
+
+
+    let getMakers = async () => {
+        let response = await api.getMakers();
+        
+        setMakers(response)
+        setMakerCount(response.length)
+        // console.log(makers)
+        // console.log(makerCount)
+    }
+
+
+    let getCars = async()=>{
+
+        let response = await api.getCars();
+        setCars(response.cars);
+
+        console.log(cars)
+        console.log(cars)
+    }
+    
+
+    useEffect(() => {
+
+        getCars();
+        getMakers();
+        
+    }, [])
 
 
     return (
@@ -24,7 +59,7 @@ export default function Home() {
             </div>
 
 
-
+            <HomeCars cars={cars} />
 
 
         </div>
