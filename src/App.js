@@ -17,14 +17,8 @@ let EDIT_PAGE = "edit";
 
 
 function App() {
-
   let [page, setPage] = useState(HOME_PAGE);
-
-
-
-
-
-  return (
+    return (
     <>
       <Navbar />
 

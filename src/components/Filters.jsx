@@ -17,32 +17,15 @@ export default function Filters() {
 
 
 
-    let [makers, setMakers] = useState([]);
-    let [makerCount,setMakerCount]=useState();
-
-    let api = new Data();
-
-
-    let getMakers = async () => {
-        let response = await api.getMakers();
-        
-        setMakers(response)
-        setMakerCount(response.length)
-        console.log(makers)
-        console.log(makerCount)
-    }
     
-
-    useEffect(() => {
-
-        
-        getMakers();
-        
-    }, [])
 
 
     const optionLists = [
-       ,
+        {
+            value: 'Audi',
+            label: 'Audi',
+            isLeaf: false,
+        },
         {
             value: 'BMW',
             label: 'BMW',

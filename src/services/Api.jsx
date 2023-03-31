@@ -30,6 +30,18 @@ export default class Data {
 
     }
 
+    async getCars(){
+        try {
+            let data = await this.api('/all-cars')
+            let resp= await data.json();
+            // console.log(resp)
+            return resp;
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     async getMakers(){
         try {
             let data = await this.api('/all-cars/all-makers')
