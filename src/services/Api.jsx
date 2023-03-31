@@ -7,7 +7,7 @@ export default class Data {
 
     api(path,method="GET",body=null){
 
-        const url="http://localhost:3000/api/v1"+path;
+        const url="http://localhost:4444"+path;
 
         const options = {
             method,
@@ -28,5 +28,17 @@ export default class Data {
         return fetch(url,options)
 
 
+    }
+
+    async getMakers(){
+        try {
+            let data = await this.api('/all-cars/all-makers')
+            let resp= await data.json();
+            // console.log(resp)
+            return resp;
+            
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
