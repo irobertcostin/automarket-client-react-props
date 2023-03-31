@@ -2,13 +2,14 @@ import Home from "./components/Home"
 import Navbar from "./components/Navbar";
 import React, { useEffect, useState } from 'react'
 import Data from "./services/Api";
+import AddCar from "./components/AddCar";
 
 // const declaration
-let HOME_PAGE = "home";
+export const  HOME_PAGE = "home";
 
-let ADD_PAGE = "add";
+export const  ADD_PAGE = "add";
 
-let EDIT_PAGE = "edit";
+export const  EDIT_PAGE = "edit";
 
 
 
@@ -18,16 +19,23 @@ let EDIT_PAGE = "edit";
 
 function App() {
   let [page, setPage] = useState(HOME_PAGE);
+
+
+
     return (
     <>
-      <Navbar />
+      <Navbar setPage={setPage}/>
 
       {(() => {
           switch (page) {
             case HOME_PAGE:
               return <Home />;
+            
 
             case ADD_PAGE:
+            return <AddCar />;
+
+
 
             default:
               return <Home />;
