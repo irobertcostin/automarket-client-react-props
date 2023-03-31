@@ -16,20 +16,23 @@ import {
 
 
 
-const { RangePicker } = DatePicker;
-
 
 
 
 export default function AddCar() {
+
+
+
 
     const [componentSize, setComponentSize] = useState('default');
     const onFormLayoutChange = ({ size }) => {
         setComponentSize(size);
     };
 
-    const onChange = (value) => {
-        console.log('changed', value);
+
+
+    const onChangePrice = (price) => {
+        console.log('changed', price);
     };
 
 
@@ -44,7 +47,7 @@ export default function AddCar() {
 
 
 
-            <div className="w-full h-[48vh] bg-blue-700 p-2 pb-4 flex flex-col items-center justify-start ">
+            <div className="w-full h-[48vh] bg-blue-700 p-4 flex flex-col items-center justify-start ">
                 <Form className=" flex flex-col bg-white p-7 mt-5 lg:mt-8 max-w-[600px] rounded-lg shadow-[0_20px_50px_rgba(0,_255,_255,_0.7)]"
                     labelCol={{
                         span: 0,
@@ -96,7 +99,7 @@ export default function AddCar() {
                             defaultValue={1000}
                             formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                             parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-                            onChange={onChange}
+                            onChange={onChangePrice}
                             style={{ width: '100%' }}
                         />
                     </div>
