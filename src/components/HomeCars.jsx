@@ -1,9 +1,14 @@
 import React from "react"
 import CarModal from "./CarModal"
 import { Empty } from 'antd';
+import App,{EDIT_PAGE} from "../App";
+
+export default function HomeCars({cars,setPage}){
 
 
-export default function HomeCars({cars}){
+    let set=()=>{
+        setPage(EDIT_PAGE)
+    }
 
 
     return(
@@ -16,7 +21,7 @@ export default function HomeCars({cars}){
                 <div className="w-full   h-[65vh] overflow-scroll flex flex-row flex-wrap gap-8 p-4 justify-center items-center ">
                     {
                         cars.length>0
-                        ?cars.map(element=><CarModal key={element.id} element={element}></CarModal>)
+                        ?cars.map(element=><CarModal key={element.id} element={element} set={set}></CarModal>)
                         :<div className="w-full"><Empty /></div>
                         
                         
