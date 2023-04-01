@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import React, { useEffect, useState } from 'react'
 import Data from "./services/Api";
 import AddCar from "./components/AddCar";
-
+import EditCar from "./components/EditCar"
 // const declaration
 export const  HOME_PAGE = "home";
 
@@ -29,13 +29,14 @@ function App() {
       {(() => {
           switch (page) {
             case HOME_PAGE:
-              return <Home />;
+              return <Home setPage={setPage}/>;
             
 
             case ADD_PAGE:
-            return <AddCar />;
+            return <AddCar setPage={setPage}/>;
 
-
+            case EDIT_PAGE:
+            return <EditCar/>
 
             default:
               return <Home />;

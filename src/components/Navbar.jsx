@@ -21,8 +21,8 @@ export default function Navbar({setPage}) {
                 <a href="" className="bg-gradient-to-r from-sky-800 to-violet-700 bg-clip-text text-transparent text-[20px] font-extrabold cursor-pointer">AUTOKIT.RO</a>
             </div>
 
-            <Button onClick={set
-            } type="primary" className="bg-blue-600 ml-auto mr-2 font-semibold text-[12px]" size={"medium"} >
+            <Button onClick={set} 
+            type="primary" className="bg-blue-600 ml-auto mr-2 font-semibold text-[12px]" size={"medium"} >
                 SELL CAR
             </Button>
         </div>

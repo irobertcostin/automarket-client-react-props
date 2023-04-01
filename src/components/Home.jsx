@@ -10,7 +10,7 @@ import Data from "../services/Api";
 
 
 
-export default function Home() {
+export default function Home({setPage}) {
 
 
     let [cars,setCars]=useState([]);
@@ -25,7 +25,7 @@ export default function Home() {
         
         setMakers(response)
         setMakerCount(response.length)
-        // console.log(makers)
+        console.log(makers)
         // console.log(makerCount)
     }
 
@@ -35,8 +35,7 @@ export default function Home() {
         let response = await api.getCars();
         setCars(response.cars);
 
-        console.log(cars)
-        console.log(cars)
+
     }
     
 
@@ -59,7 +58,7 @@ export default function Home() {
             </div>
 
 
-            <HomeCars cars={cars} />
+            <HomeCars cars={cars} setPage={setPage}/>
 
 
         </div>
