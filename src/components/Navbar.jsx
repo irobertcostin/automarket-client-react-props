@@ -14,7 +14,7 @@ export default function Navbar({setPage}) {
 
 
     return (
-        <div className="w-full h-[60px] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] flex flex-row items-center justify-start gap-4 lg:h-[80px]">
+        <div className="w-full h-[8vh] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] flex flex-row items-center justify-start gap-4 lg:h-[80px]">
 
 
             <div className=" ml-4 p-2 hover:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg duration-500 sm:ml-4 ">

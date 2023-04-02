@@ -35,7 +35,6 @@ export default function Home({setPage}) {
         let response = await api.getCars();
         setCars(response.cars);
 
-
     }
     
 
@@ -54,7 +53,7 @@ export default function Home({setPage}) {
             </div>
 
             <div className=" absolute top-8 left-6 border border-fuchsia-500 rounded-lg p-0 shadow-[0_20px_50px_rgba(8,_112,_184,_1)]">
-                <Filters />
+                <Filters makers={makers}/>
             </div>
 
 
