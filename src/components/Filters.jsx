@@ -13,14 +13,11 @@ import { Cascader } from 'antd';
 
 
 
-export default function Filters() {
-
-
+export default function Filters({makers}) {
 
     
-
-
     const optionLists = [
+
         {
             value: 'Audi',
             label: 'Audi',
@@ -39,7 +36,11 @@ export default function Filters() {
     const [options, setOptions] = useState(optionLists);
 
     const onChange = (value, selectedOptions) => {
-        console.log(value, selectedOptions);
+        // console.log(value );
+        console.log(makers)
+        // console.log(makers)
+        // selectedOptions e model 
+        // value e maker
     };
 
 
