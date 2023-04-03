@@ -1,11 +1,15 @@
 import { Button } from "antd"
 import App,{EDIT_PAGE} from "../App";
 
-export default function CarModal({element,set}){
+export default function CarModal({element,set,setCarId}){
 
     let setPage=()=>{
         set(EDIT_PAGE)
+        setCarId(element.id)
     }
+
+
+
 
 
     return(

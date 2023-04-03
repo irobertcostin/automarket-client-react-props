@@ -21,23 +21,27 @@ export const  EDIT_PAGE = "edit";
 function App() {
   let [page, setPage] = useState(HOME_PAGE);
 
+  
+  let [carId, setCarId] = useState({});
+
+
 
 
     return (
     <>
-      <Navbar setPage={setPage}/>
+      <Navbar setPage={setPage}  page={page}/>
 
       {(() => {
           switch (page) {
             case HOME_PAGE:
-              return <Home setPage={setPage}/>;
+              return <Home setPage={setPage} setCarId={setCarId} />;
             
 
             case ADD_PAGE:
             return <AddCar setPage={setPage}/>;
 
             case EDIT_PAGE:
-            return <EditCar/>
+            return <EditCar carId={carId} setPage={setPage}/>
 
             default:
               return <Home />;

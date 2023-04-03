@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, message, Result, Space } from "antd";
+import { RestFilled } from "@ant-design/icons";
 
 
 
@@ -65,27 +66,65 @@ export default class Data {
     async addCar(car) {
         try {
 
-            // message.loading("Loading", [1],console.log(""))
+            
             let data = await this.api('/new-car', "POST", car)
 
-            if(data.status===201){
+            if (data.status === 201) {
                 let resp = await data.json();
-                
+
                 message.success("Your car has been posted", [3], console.log(resp))
                 return resp;
-            }else {
+            } else {
                 let resp = await data.json();
-                
+
                 message.error(resp.error.message, [3], console.log(""))
             }
-            
-            
+
+
         } catch (error) {
             console.log(error)
         }
+    }
 
 
 
+    async getCarById(id) {
+        try {
+            
+            let data = await this.api(`/all-cars/car-by-id/id=${id}`)
+            
+
+            if (data.status === 200) {
+                let resp = await data.json();
+                // console.log(resp)
+                return resp;
+            } else {
+                let resp = await data.json();
+                message.error(resp.error.message, [3], console.log(""))
+            }
+
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async editCar(car,id){
+
+        try {
+            let data = await this.api(`/edit-car/car-id=${id}`,"PUT",car)
+
+            if(data.status===201){
+                let response = await data.json();
+                message.success(response, [5], console.log(""))
+            }else {
+                let response = await data.json();
+                message.error(response.error.message, [5], console.log(""))
+            }
+
+        } catch (error) {
+            message.error(error, [3], console.log(""))
+        }
 
     }
 
