@@ -32,15 +32,16 @@ export default function Navbar({ setPage, page }) {
 
 
             <div className="h-full shadow-[inset_-8px_-8px_30px_#7c3aed] flex flex-row items-center justify-start gap-4 lg:h-[80px]">
-                <div className=" ml-4 p-2 hover:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg duration-500 sm:ml-4 ">
-                    <a href="" className="text-white text-[20px] font-extrabold cursor-pointer">AUTOKIT.RO</a>
+                
+                <div className=" ml-4 p-2 cursor-pointer hover:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg duration-500 sm:ml-4  hover:scale-110 hover:bg-gradient-to-r from-slate-300 to-slate-500 ">
+                    <a href="" className="text-white md:text-[25px] font-extrabold  ">SuperCarSpotlight</a>
                 </div>
 
-                <Button onClick={set}
+                {/* <Button onClick={set}
                     type="primary" className="bg-blue-600 ml-auto mr-2 font-semibold text-[12px] md:hover:scale-110 md:mr-4 lg:hover:scale-125 lg:mr-8" size={"medium"} >
 
                     SELL CAR
-                </Button>
+                </Button> */}
             </div>
         </div>
 

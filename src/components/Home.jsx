@@ -14,6 +14,8 @@ export default function Home({ setPage, setCarId }) {
 
 
     let [cars, setCars] = useState([]);
+    let [carCount, setCarCount] = useState();
+
     let [makers, setMakers] = useState([]);
     let [makerCount, setMakerCount] = useState();
 
@@ -38,8 +40,12 @@ export default function Home({ setPage, setCarId }) {
 
         let response = await api.getCars();
         setCars(response.cars);
-        setMakerCount(response.cars.length);
+        setCarCount(response.cars.length)
+        // setMakerCount(response.cars.length);
+
+        
     }
+
 
 
 
@@ -58,8 +64,10 @@ export default function Home({ setPage, setCarId }) {
     return (
         <div className="relative">
 
-            <Marquee>
-                I can be a React component, multiple React components, or just some text.
+            <Marquee className="bg-red-600 text-slate-100 font-semibold" pauseOnHover={true} gradientWidth={50} speed={50} delay={1} gradient={true} gradientColor={[255, 0, 0]}>
+                <p >The Offer : {carCount}</p>
+                <p className="ml-[5vh]">Exquisite makers : {makerCount}</p>
+
             </Marquee>
 
             <div className="test-drive-div  flex flex-col items-center justify-end">
@@ -81,4 +89,14 @@ export default function Home({ setPage, setCarId }) {
 }
 
 // Progress section
-// loader for every section that contains 
+// loader for every section that contains API 
+// stats on front page 
+// a div with 3 photos with big names 
+// a search bar 
+// marquee customization 
+// navbar buttons 
+// font 
+// DRIVE YOUR DREAM and test drive button on lambo pic home 
+// filters section 
+// 
+
