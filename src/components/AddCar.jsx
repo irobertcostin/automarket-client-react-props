@@ -118,8 +118,9 @@ export default function AddCar({ setPage }) {
             {
                 isAdded
                     ?
-                    <div className="w-full border bg-slate-100 ">
+                    <div className="w-full border bg-slate-100 mt-24 added-result">
                         <Result
+                            className=""
                             status="success"
                             title="Successfully Posted A Car For Sale!"
                             // subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
@@ -132,82 +133,96 @@ export default function AddCar({ setPage }) {
                         />
                     </div>
                     :
-                    <div className="w-full h-[91vh] relative  lg:flex-row lg:justify-start lg:items-center">
-                        <div className=" relative p-4  flex flex-col items-center justify-start ">
-                            <div className="rounded-lg px-4 py-2  mt-4 mx-4 mb-2 opacity-[0.9] lg:hidden">
-                                <p className="text-center text-[15px] font-bold text-slate-700">Post your car for sale in this section and gain exposure to excentric millionaires </p>
+                    <div className="w-full h-[89vh] relative  lg:flex-row lg:justify-start lg:items-center">
+                        <div className=" relative p-4  flex flex-col items-center  justify-between xl:items-center xl:w-[900px] 2xl:w-[1100px]">
+
+                            <div className=" w-full bg-gradient-to-r from-blue-800 to-indigo-900 py-1 rounded-md fade-in ">
+                                <p className="text-center text-[15px] py-1 font-bold text-slate-100">Add car section </p>
                             </div>
-                            
-                            <Form className=" add-form flex flex-col  px-12 py-12 lg:mt-8 w-auto rounded-lg"
-                                labelCol={{
-                                    span: 0,
-                                }}
-                                wrapperCol={{
-                                    span: 50,
 
-                                }}
-                                layout="horizontal"
-                                initialValues={{
-                                    size: componentSize,
-                                }}
-                                onValuesChange={onFormLayoutChange}
-                                size={componentSize}
-                                label=""
+                            <div className=" flex flex-row p-5 h-[450px] gap-6">
 
-                            >
-
-
-
-                                <Form.Item className=" flex ">
-                                    <Input onChange={onChangeMaker} className=" " style={{ width: '200px' }} placeholder="Maker" />
-                                </Form.Item>
-
-                                <Form.Item className=" flex ">
-                                    <Input onChange={onChangeModel} className="" style={{ width: '200px' }} placeholder="Model" />
-                                </Form.Item>
-
-
-                                <div className=" flex items-center mb-6">
-                                    <label className="mr-12 hidden">Mileage</label>
-                                    <InputNumber onChange={onChangeMileage} prefix="km" style={{ width: '200px' }} />
+                                <div className="add-info-inp">
+                                    <p className="mt-12">Maker</p>
+                                    <p>Model</p>
+                                    <p>Mileage</p>
+                                    <p>Price</p>
+                                    <p className="mb-28">Registration</p>
                                 </div>
+                                <Form className=" add-form flex flex-col  px-12 py-12 w-auto rounded-lg"
+                                    labelCol={{
+                                        span: 0,
+                                    }}
+                                    wrapperCol={{
+                                        span: 50,
+
+                                    }}
+                                    layout="horizontal"
+                                    initialValues={{
+                                        size: componentSize,
+                                    }}
+                                    onValuesChange={onFormLayoutChange}
+                                    size={componentSize}
+                                    label=""
+
+                                >
 
 
 
-                                <div className=" flex items-center mb-6">
-                                    <label className="mr-16 hidden">Price</label>
-                                    <InputNumber
-                                        defaultValue={1000}
-                                        formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                        parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-                                        onChange={onChangePrice}
-                                        style={{ width: '200px' }}
-                                    />
-                                </div>
+                                    <Form.Item className=" flex ">
+                                        <Input onChange={onChangeMaker} className=" " style={{ width: '200px' }} placeholder="Maker" />
+                                    </Form.Item>
 
-                                <div className=" flex items-center mb-6">
-                                    <label className="mr-12 hidden">Registration</label>
-                                    <DatePicker onChange={onChangeYear} style={{ width: '200px' }} picker="month" placeholder="Registration date" bordered={true} />
-                                </div>
+                                    <Form.Item className=" flex ">
+                                        <Input onChange={onChangeModel} className="" style={{ width: '200px' }} placeholder="Model" />
+                                    </Form.Item>
+
+
+                                    <div className=" flex items-center mb-6">
+                                        <label className="mr-12 hidden">Mileage</label>
+                                        <InputNumber onChange={onChangeMileage} prefix="km" style={{ width: '200px' }} />
+                                    </div>
 
 
 
-                                <div className="flex w-full flex-row gap-4 items-center justify-center mt-2">
-                                    <Button type="primary" onClick={addCar} className="bg-blue-600 font-semibold">Submit</Button>
-                                    <Button type="primary" onClick={set} className="font-semibold" danger>Cancel</Button>
-                                </div>
+                                    <div className=" flex items-center mb-6">
+                                        <label className="mr-16 hidden">Price</label>
+                                        <InputNumber
+                                            defaultValue={1000}
+                                            formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                            parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+                                            onChange={onChangePrice}
+                                            style={{ width: '200px' }}
+                                        />
+                                    </div>
+
+                                    <div className=" flex items-center mb-6">
+                                        <label className="mr-12 hidden">Registration</label>
+                                        <DatePicker onChange={onChangeYear} style={{ width: '200px' }} picker="month" placeholder="Registration date" bordered={true} />
+                                    </div>
+
+
+
+                                    <div className="flex w-full flex-row gap-4 items-center justify-center mt-2">
+                                        <Button type="primary" onClick={addCar} className="bg-blue-600 font-semibold hover:scale-110">Submit</Button>
+                                        <Button type="primary" onClick={set} className="font-semibold hover:scale-110" danger>Cancel</Button>
+                                    </div>
 
 
 
 
 
-                            </Form>
+                                </Form>
+                            </div>
+
+
+
                         </div>
 
                         <div className="comm-sell absolute h-[90vh] m-1 rounded-sm top-0 right-0 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
                             <div className="commercial-sell w-[500px]  h-[500px]" />
-                            <div className=" h-[30vh] p-5 text-center w-[500px]">
-                                <p className="text-3xl mb-4">Thousands of sellers and buyers trust us.</p>
+                            <div className=" h-[25vh] p-2 text-center text-slate-500 w-[500px]">
+                                <p className="text-2xl mt-4">Thousands of sellers and buyers trust us.</p>
                                 <p>Romania`s biggest vehicle marketplace</p>
                                 <p>Over 20.000 daily unique visitors</p>
                                 <p>More than 30.000 cars sold</p>

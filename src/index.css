@@ -22,55 +22,88 @@ code {
   display: none;
 }
 
-.menu-btn {
-  margin: 0;
-  padding: 0;
-  border: none;
-  font-size: 40px;
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 3px;
-  /* background-color: white; */
-  cursor: pointer;
-  color: #240943;
-  margin-right: 0px;
-  border-radius: 50%;
-  transition: 1.3s;
-  /* border: 2px solid green; */
-}
 
-.menu-btn:hover {
-  transform: rotate(1turn);
 
+
+
+
+
+/* .edit-div-img{
+  background-image: ;
+
+} */
+
+.test-drive-div {
+  /* height:100px */
 }
 
 .test-drive {
-  background-image: url("./components/images/cover-bg.jpg");
+  background-image: url("./components/images/COVER_Aventador-SVJ.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+
 }
 
+.add-info-inp {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  column-gap: 20px;
+  /* border: 2px solid red;
+   */
+  display: none;
+}
 
 @media (min-width:700px) {
-  .test-drive {
-    background-position: bottom;
-    height: 350px;
+  .test-drive-div {
+    position: relative;
+    height: 200px;
+    top: 0px;
+    overflow: hidden;
   }
+
+  .test-drive {
+    background-position: center;
+    height: 250px;
+    position: absolute;
+    top: -50px;
+  }
+
+
+  .add-info-inp {
+    display: flex;
+
+  }
+
+  /* .added-result{
+    background-image: url("./components/images/lb-b.jpg");
+      background-size:;
+      background-position:bottom;
+    
+  } */
 }
 
 
 
-@media (min-width:1200px) {
-  .test-drive {
-    background-position: bottom;
-    height: 550px;
-  }
+@media (min-width:1024px) {
+
 
   .test-drive-div {
-    background-position: bottom;
+    /* background-position: center; */
     /* border: 2px solid red; */
-    height: 550px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+
+  }
+
+  .test-drive {
+    background-position: top;
+    height: 620px;
+    position: absolute;
+
+    top: -300px;
   }
 
   .comm-sell {
@@ -80,6 +113,7 @@ code {
     font-family: 'Alegreya Sans', serif;
     font-family: 'Alkatra', cursive;
     color: #173445;
+    height: 100%;
   }
 
   .commercial-sell {
@@ -90,10 +124,108 @@ code {
 
   }
 
-  .add-form{
+  /* .add-form{
     position: absolute;
     left:0;
+  } */
+
+
+}
+
+@media (min-width:1500px) {
+
+
+  .test-drive-div {
+    /* background-position: center; */
+    /* border: 2px solid red; */
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid green; */
+
   }
+
+  .test-drive {
+    background-position: top;
+    height: 800px;
+    position: absolute;
+
+    top: -330px;
+  }
+
+  /* .comm-sell {
+    display: flex;
+    flex-direction: column;
+    background-color: #eae9db;
+    font-family: 'Alegreya Sans', serif;
+    font-family: 'Alkatra', cursive;
+    color: #173445;
+    height: 100%;
+  }
+
+  .commercial-sell {
+    background-image: url("./components/images/brands/classicad.png");
+    
+    background-position: cover;
+
+
+  } */
+
+  /* .add-form{
+    position: absolute;
+    left:0;
+  } */
+
+
+}
+
+@media (min-width:1650px) {
+
+
+  .test-drive-div {
+    /* background-position: center; */
+    /* border: 2px solid red; */
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid green; */
+
+  }
+
+  .test-drive {
+    background-position: top;
+    height: 870px;
+    position: absolute;
+
+    top: -350px;
+  }
+
+
+
+}
+
+
+@media (min-width:2150px) {
+
+
+  .test-drive-div {
+    /* background-position: center; */
+    /* border: 2px solid red; */
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid green; */
+
+  }
+
+  .test-drive {
+    background-position: top;
+    height: 900px;
+    position: absolute;
+
+    top: -500px;
+  }
+
 
 
 }
