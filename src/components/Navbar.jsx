@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Dropdown, Breadcrumb } from "antd";
 import Home from "./Home";
-import App, { ADD_PAGE, HOME_PAGE } from "../App";
+import App, { ADD_PAGE, HOME_PAGE,EDIT_PAGE } from "../App";
 
 
 
@@ -14,13 +14,19 @@ export default function Navbar({ setPage, page }) {
    
     //breadcrumb
 
+    // set pages section 
 
-
-
-    // add page setter
-    let set = () => {
-
+    let setAdd=()=>{
         setPage(ADD_PAGE)
+    }
+
+    let setEdit=()=>{
+        setPage(EDIT_PAGE)
+    }
+
+
+    let setHome=()=>{
+        setPage(HOME_PAGE)
     }
 
 
@@ -36,7 +42,7 @@ export default function Navbar({ setPage, page }) {
         {
             key: '1',
             label: (
-                <a target="_blank" >
+                <a  onClick={setHome} >
                     /home
                 </a>
             ),
@@ -44,7 +50,7 @@ export default function Navbar({ setPage, page }) {
         {
             key: '2',
             label: (
-                <a target="_blank" >
+                <a >
                     /all-cars
                 </a>
             ),
@@ -52,7 +58,7 @@ export default function Navbar({ setPage, page }) {
         {
             key: '3',
             label: (
-                <a target="_blank" onClick={set}>
+                <a  onClick={setAdd}>
                     /add-car
                 </a>
             ),
@@ -60,7 +66,7 @@ export default function Navbar({ setPage, page }) {
         {
             key: '4',
             label: (
-                <a target="_blank" >
+                <a  >
                     /edit-car
                 </a>
             ),
@@ -79,7 +85,7 @@ export default function Navbar({ setPage, page }) {
 
                 <div className=" ml-4 p-2 cursor-pointer  rounded-lg duration-500 sm:ml-4  hover:scale-110 hover:bg-gradient-to-r from-slate-300 to-slate-500 ">
 
-                    <a href="" class=" text-white p-4  text-shadow-glow">SupercarSpotlight</a>
+                    <a href="" className=" text-white p-4  text-shadow-glow">SupercarSpotlight</a>
                 </div>
 
 
@@ -89,17 +95,17 @@ export default function Navbar({ setPage, page }) {
                     className=" ml-12 hidden md:flex"
                     items={[
                         {
-                            title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">home</p>,
+                            title: <p onClick={setHome} className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">home</p>,
                         },
 
                         {
                             title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">all-cars</p>,
                         },
                         {
-                            title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">add-car</p>,
+                            title: <p onClick={setAdd} className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">add-car</p>,
                         },
                         {
-                            title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">edit-car</p>,
+                            title: <p  className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">edit-car</p>,
                         }
 
                     ]}
