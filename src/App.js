@@ -6,11 +6,11 @@ import AddCar from "./components/AddCar";
 import EditCar from "./components/EditCar"
 
 // const declaration
-export const  HOME_PAGE = "home";
+export const HOME_PAGE = "home";
 
-export const  ADD_PAGE = "add";
+export const ADD_PAGE = "add";
 
-export const  EDIT_PAGE = "edit";
+export const EDIT_PAGE = "edit";
 
 
 
@@ -21,32 +21,34 @@ export const  EDIT_PAGE = "edit";
 function App() {
   let [page, setPage] = useState(HOME_PAGE);
 
-  
+
   let [carId, setCarId] = useState({});
 
 
 
 
-    return (
+  return (
     <>
-      <Navbar setPage={setPage}  page={page}/>
+      <Navbar setPage={setPage} page={page} />
 
       {(() => {
-          switch (page) {
-            case HOME_PAGE:
-              return <Home setPage={setPage} setCarId={setCarId} />;
-            
+        switch (page) {
+          case HOME_PAGE:
+            return <Home setPage={setPage} setCarId={setCarId} />;
 
-            case ADD_PAGE:
-            return <AddCar setPage={setPage}/>;
 
-            case EDIT_PAGE:
-            return <EditCar carId={carId} setPage={setPage}/>
+          case ADD_PAGE:
+            return <AddCar setPage={setPage} />;
 
-            default:
-              return <Home />;
-          }
-        })()}
+          case EDIT_PAGE:
+            return <EditCar carId={carId} setPage={setPage} />
+
+          default:
+            return <Home />;
+        }
+      })()}
+
+
     </>
   );
 }
