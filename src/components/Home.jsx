@@ -43,7 +43,7 @@ export default function Home({ setPage, setCarId }) {
         setCarCount(response.cars.length)
         // setMakerCount(response.cars.length);
 
-        
+
     }
 
 
@@ -64,13 +64,26 @@ export default function Home({ setPage, setCarId }) {
     return (
         <div className="relative">
 
-            <Marquee className="bg-red-600 text-slate-100 font-semibold" pauseOnHover={true} gradientWidth={50} speed={50} delay={1} gradient={true} gradientColor={[255, 0, 0]}>
-                <p >The Offer : {carCount}</p>
-                <p className="ml-[5vh]">Exquisite makers : {makerCount}</p>
+            <Marquee className="bg-red-600 text-slate-100 text-xs md:text-md lg:text-lg" pauseOnHover={true} gradientWidth={50} speed={50} delay={1} gradient={true} gradientColor={[255, 0, 0]}>
+                <p >{carCount}+ supercars</p>
+                <p className="ml-[5vh]">Over {makerCount} exquisite makers</p>
 
             </Marquee>
 
-            <div className="test-drive-div  flex flex-col items-center justify-end">
+            <div className="test-drive-div relative  flex flex-col items-center justify-end">
+
+                <div className="w-full relative ">
+                    <div className="font-bold absolute z-10 right-4 cursor-pointer -bottom-12 bg-gradient-to-r from-amber-200 to-yellow-500 p-2 rounded-md">
+                        <p className="text-xs">TEST DRIVE</p>
+                    </div>
+
+                </div>
+
+                <div className="absolute z-10 flex flex-col items-start justify-end left-4 bottom-2  text-white text-2xl ">
+
+                    <p>DRIVE YOUR</p>
+                    <p>DREAM</p>
+                </div>
                 <div className="w-full  test-drive h-[150px]"></div>
             </div>
 
@@ -98,5 +111,6 @@ export default function Home({ setPage, setCarId }) {
 // font 
 // DRIVE YOUR DREAM and test drive button on lambo pic home 
 // filters section 
-// 
+// app title padding is wrong 
+
 
