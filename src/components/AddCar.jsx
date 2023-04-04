@@ -18,6 +18,7 @@ import {
 import { LeftOutlined } from "@ant-design/icons";
 import App, { HOME_PAGE } from "../App";
 import Data from "../services/Api";
+import Classicad from "../components/images/brands/Classicad.png"
 
 
 
@@ -134,13 +135,13 @@ export default function AddCar({ setPage }) {
                     </div>
                     :
                     <div className="w-full h-[89vh] relative  lg:flex-row lg:justify-start lg:items-center">
-                        <div className=" relative p-4  flex flex-col items-center  justify-between xl:items-center xl:w-[900px] 2xl:w-[1100px]">
+                        <div className="add-form relative p-4   flex flex-col items-center  justify-between lg:w-[105vh]">
 
-                        <div className=" text-center w-full bg-gradient-to-r from-slate-300 to-slate-500 py-2 px-4 rounded-lg opacity-90">
-                    <p className="text-white">Submit your dream car to our collection and share it with the world</p>
-                </div>
+                            <div className=" text-center w-full bg-gradient-to-r from-slate-300 to-slate-500 mb-2 py-2 px-4 rounded-lg opacity-90 lg:mb-8">
+                                <p className="text-slate-800 ">Submit your dream car to our collection and share it with the world</p>
+                            </div>
 
-                            <div className=" flex flex-row p-5 h-[450px] gap-6">
+                            <div className=" flex   flex-row p-5 h-[450px] gap-6">
 
                                 <div className="add-info-inp">
                                     <p className="mt-12">Maker</p>
@@ -219,15 +220,10 @@ export default function AddCar({ setPage }) {
 
                         </div>
 
-                        <div className="comm-sell absolute h-[90vh] m-1 rounded-sm top-0 right-0 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-                            <div className="commercial-sell w-[500px]  h-[500px]" />
-                            <div className=" h-[25vh] p-2 text-center text-slate-500 w-[500px]">
-                                <p className="text-2xl mt-4">Thousands of sellers and buyers trust us.</p>
-                                <p>Romania`s biggest vehicle marketplace</p>
-                                <p>Over 20.000 daily unique visitors</p>
-                                <p>More than 30.000 cars sold</p>
-                                <p>Functionalities that will guide you to success</p>
-                            </div>
+                        <div className="comm-sell absolute  rounded-sm top-0 right-0 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                            <div className="commercial-sell " />
+
+
                         </div>
                     </div>
             }

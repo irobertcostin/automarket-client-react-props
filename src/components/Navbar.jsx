@@ -74,14 +74,14 @@ export default function Navbar({ setPage, page }) {
 
 
     return (
-        <div className="w-full h-[8vh] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-gradient-to-r from-indigo-900 to-blue-800 ">
+        <div className="w-full h-[8vh] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-gradient-to-r from-indigo-900 to-blue-800 lg:h-[8vh]">
 
 
-            <div className="h-full shadow-[inset_-8px_-8px_30px_#7c3aed] flex flex-row items-center justify-start gap-4 lg:h-[80px]">
+            <div className="h-full shadow-[inset_-8px_-8px_30px_#7c3aed] flex flex-row items-center justify-start gap-4  ">
 
-                <div className=" ml-4 p-2 cursor-pointer  rounded-lg duration-500 sm:ml-4  hover:scale-110 hover:bg-gradient-to-r from-slate-300 to-slate-500 ">
+                <div className=" ml-4 p-2 cursor-pointer  rounded-lg duration-500 sm:ml-4  hover:scale-110 hover:bg-gradient-to-r from-slate-300 to-slate-500 lg:ml-12 ">
 
-                    <a href="" className=" text-white p-4  text-shadow-glow">SupercarSpotlight</a>
+                    <a href="" className=" text-white p-4  text-shadow-glow md:text-xl lg:text-2xl xl:text-3xl">SupercarSpotlight</a>
                 </div>
 
 

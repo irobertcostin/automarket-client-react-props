@@ -18,7 +18,7 @@ import {
 } from 'antd';
 
 import carpng from "./images/rolls-car.png"
-import App, { HOME_PAGE, ADD_PAGE, EDIT_PAGE } from "../App";
+import App, { HOME_PAGE, ADD_PAGE, EDIT_PAGE, ALL_PAGE } from "../App";
 
 export default function EditCar({ carId, setPage }) {
 
@@ -91,6 +91,9 @@ export default function EditCar({ carId, setPage }) {
         setPage(HOME_PAGE)
     }
 
+    let setAll = () => {
+        setPage(ALL_PAGE)
+    }
 
 
 
@@ -100,10 +103,8 @@ export default function EditCar({ carId, setPage }) {
 
 
 
-    useEffect(() => {
-        getCarById();
 
-    }, [])
+
 
 
     const [componentSize, setComponentSize] = useState('default');
@@ -115,9 +116,9 @@ export default function EditCar({ carId, setPage }) {
 
 
 
-    let editCar = async (car, carId) => {
+    let editCar = async () => {
 
-        car = {
+        let car = {
             maker: brand,
             model: model,
             mileage: mileage,
@@ -137,35 +138,40 @@ export default function EditCar({ carId, setPage }) {
     }
 
 
+    useEffect(() => {
+        getCarById();
 
+    }, [])
 
     return (
 
-        <div className="w-full h-[89vh] relative  lg:flex-row lg:justify-start lg:items-center">
+        <div className=" w-full h-[89vh] relative  lg:flex-row lg:justify-start lg:items-center">
+
+            <div className="edit-car-form  relative p-4   flex flex-col  justify-center items-center">
 
 
 
-            <div className=" relative p-4  flex flex-col items-center  justify-start xl:items-center xl:w-[900px] 2xl:w-[1100px]">
-
-                <div className=" text-center bg-gradient-to-r from-slate-300 to-slate-500 py-2 px-4 rounded-lg opacity-90">
-                    <p className="text-white">Fine-tune your favorite supercar's details and keep our collection accurate</p>
+                <div className=" edit-car-form-top text-center w-full bg-gradient-to-r from-slate-300 to-slate-500 mb-2 py-2 px-4 rounded-lg opacity-90 lg:mb-8">
+                    <p className="text-slate-800">Fine-tune your favorite supercar's details and keep our collection accurate</p>
                 </div>
 
-                <div className=" mt-8 w-full h-[30vh] rounded-md max-w-[700px] shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
+                <div className=" border border-fuchsia-500 mt-2 w-full h-[30vh] flex flex-row overflow-hidden justify-between rounded-md max-w-[700px] md:mt-2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
 
-                    <div className="relative ">
-                        <img className="absolute right-1 top-1 max-w-[40%]" src={carpng} />
+                    <div className=" flex flex-col justify-center lg:pl-4">
+                        <div className="relative pl-4 py-1 bg-gradient-to-r from-sky-800 to-violet-700 bg-clip-text text-transparent font-semibold text-xl md:text-3xl md:px-14 lg:text-3xl lg:pl-8 lg:font-semibold">
+                            <p className=" md:min-w-[250px]">{currentCar.maker}</p>
+                            <p>{currentCar.model}</p>
+                        </div>
+
+                        <div className=" pl-4  text-slate-600  md:text-xl md:px-14 lg:text-xl lg:pl-8 lg:font-semibold">
+                            <p>Price : <span className="text-green-600 font-semibold">$ {currentCar.price}</span></p>
+                            <p>Reg. year : {currentCar.year}</p>
+                            <p>Mileage (km) : {currentCar.mileage} </p>
+                        </div>
                     </div>
 
-                    <div className=" p-4 pt-8 bg-gradient-to-r from-sky-800 to-violet-700 bg-clip-text text-transparent font-semibold text-xl lg:text-5xl lg:pl-12 lg:font-semibold">
-                        <p >{currentCar.maker}</p>
-                        <p>{currentCar.model}</p>
-                    </div>
-
-                    <div className=" pl-4  text-slate-600 lg:text-xl lg:pl-12 lg:font-semibold">
-                        <p>Price : <span className="text-green-600 font-semibold">$ {currentCar.price}</span></p>
-                        <p>Reg. year : {currentCar.year}</p>
-                        <p>Mileage (km) : {currentCar.mileage} </p>
+                    <div className=" flex justify-center items-center w-[50%]">
+                        <img className="  right-0 top-0 w-full" src={carpng} />
                     </div>
 
 
@@ -238,7 +244,7 @@ export default function EditCar({ carId, setPage }) {
 
                         <div className="flex w-full flex-row gap-4 items-center justify-center mt-2">
                             <Button type="primary" onClick={editCar} className="bg-blue-600 text-shadow-glow hover:scale-110">Submit</Button>
-                            <Button type="primary" className=" text-shadow-glow hover:scale-110" danger>Cancel</Button>
+                            <Button type="primary" className=" text-shadow-glow hover:scale-110" onClick={setAll} danger>Cancel</Button>
                         </div>
 
 
@@ -255,15 +261,8 @@ export default function EditCar({ carId, setPage }) {
 
             </div>
 
-            <div className="comm-sell absolute h-[90vh] m-1 rounded-sm top-0 right-0 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-                <div className="commercial-sell w-[500px]  h-[500px]" />
-                <div className=" h-[25vh] p-2 text-center text-slate-500 w-[500px]">
-                    <p className="text-2xl mt-4">Thousands of sellers and buyers trust us.</p>
-                    <p>Romania`s biggest vehicle marketplace</p>
-                    <p>Over 20.000 daily unique visitors</p>
-                    <p>More than 30.000 cars sold</p>
-                    <p>Functionalities that will guide you to success</p>
-                </div>
+            <div className="comm-sell  absolute h-[92vh] rounded-sm top-0 right-0 ">
+                <div className="commercial-sell h-[92vh] m-0 p-0" />
             </div>
         </div>
 

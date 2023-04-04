@@ -7,16 +7,17 @@
     text-shadow: 0 0 1px #FFFFFF, 0 0 1px #FFFFFF, 0 0 1px #FFFFFF, 0 0 1px #FFFFFF;
   }
 }
+
 body {
   margin: 0;
-  
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* height: 100vh; */
 
   font-family: 'Alegreya Sans', sans-serif;
-font-family: 'Alkatra', cursive;
-font-family: 'Russo One', sans-serif;
+  font-family: 'Alkatra', cursive;
+  font-family: 'Russo One', sans-serif;
 
 }
 
@@ -29,7 +30,7 @@ code {
   display: none;
 }
 
-.ant-dropdown-trigger{
+.ant-dropdown-trigger {
   font-family: 'Russo One', sans-serif;
 }
 
@@ -37,7 +38,7 @@ code {
   font-family: 'Russo One', sans-serif;
 }
 
-.ant-breadcrumb{
+.ant-breadcrumb {
   font-family: 'Russo One', sans-serif;
 }
 
@@ -54,7 +55,13 @@ code {
 }
 
 
+.ant-popover-inner-content {
+  /* Apply gradient background */
 
+
+  /* Apply Russo One font */
+  font-family: 'Russo One', sans-serif;
+}
 
 
 
@@ -85,6 +92,18 @@ code {
   display: none;
 }
 
+@media (min-width:500px) {
+  .drive-dream {
+    font-size: 33px;
+  }
+}
+
+@media (min-width:500px) {
+  .drive-dream {
+    font-size: 40px;
+  }
+}
+
 @media (min-width:700px) {
   .test-drive-div {
     position: relative;
@@ -106,12 +125,17 @@ code {
 
   }
 
+  .ant-breadcrumb-item {
+    font-size: 20px;
+  }
+
   /* .added-result{
     background-image: url("./components/images/lb-b.jpg");
       background-size:;
       background-position:bottom;
     
   } */
+
 }
 
 
@@ -139,20 +163,24 @@ code {
   .comm-sell {
     display: flex;
     flex-direction: column;
-    background-color: #eae9db;
+    /* background-color: #0d1d73; */
     font-family: 'Alegreya Sans', serif;
     font-family: 'Alkatra', cursive;
     color: #173445;
-    height: 100%;
+    /* height: 100%; */
   }
 
   .commercial-sell {
-    background-image: url("./components/images/brands/classicad.png");
-    /* background-size:; */
-    background-position: cover;
-
-
+    background-image: url("./components/images/brands/Classicad.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    /* border: 2px solid red; */
+    height: 92vh;
+    width: 70vh;
   }
+
+
 
   /* .add-form{
     position: absolute;
@@ -160,6 +188,26 @@ code {
   } */
 
 
+  
+
+
+}
+
+
+
+@media (min-width:1300px) {
+  .edit-car-form {
+    /* border: 2px solid red; */
+    width: 44%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .edit-car-form-top {
+    width: 80%;
+  }
 }
 
 @media (min-width:1500px) {
@@ -183,28 +231,18 @@ code {
     top: -330px;
   }
 
-  /* .comm-sell {
+  .edit-car-form {
+    /* border: 2px solid red; */
+    width: 50%;
     display: flex;
-    flex-direction: column;
-    background-color: #eae9db;
-    font-family: 'Alegreya Sans', serif;
-    font-family: 'Alkatra', cursive;
-    color: #173445;
-    height: 100%;
+    justify-content: center;
+    align-items: center;
+
   }
 
-  .commercial-sell {
-    background-image: url("./components/images/brands/classicad.png");
-    
-    background-position: cover;
-
-
-  } */
-
-  /* .add-form{
-    position: absolute;
-    left:0;
-  } */
+  .edit-car-form-top {
+    width: 85%
+  }
 
 
 }
@@ -226,8 +264,16 @@ code {
     background-position: top;
     height: 870px;
     position: absolute;
-
     top: -350px;
+  }
+
+  .edit-car-form {
+    /* border: 2px solid red; */
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
 
