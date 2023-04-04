@@ -10,7 +10,7 @@ import Marquee from "react-fast-marquee";
 
 
 
-export default function Home({ setPage, setCarId }) {
+export default function Home({ setPage }) {
 
 
     let [cars, setCars] = useState([]);
@@ -63,7 +63,7 @@ export default function Home({ setPage, setCarId }) {
 
     return (
         <>
-            <div className="relative flex flex-col">
+            <div className="relative flex flex-col min-h-[92vh] ">
 
                 <Marquee className="bg-red-600 text-slate-100 text-xs md:text-md lg:text-lg" pauseOnHover={true} gradientWidth={50} speed={50} delay={1} gradient={true} gradientColor={[255, 0, 0]}>
                     <p >{carCount}+ supercars</p>
@@ -93,14 +93,29 @@ export default function Home({ setPage, setCarId }) {
                 </div>
 
 
-                
 
 
 
 
-                <div className="border border-red-500 w-full mt-auto">
+
+                <div className=" w-full mt-24">
+                    <div className="w-full px-4 flex flex-col gap-4 text-xs py-8 rounded-md">
+                        <p className="text-black">Discover the full list of high-performance cars on SupercarSpotlight.</p>
+                        <p className="text-black"> From classic to modern supercars, browse through our extensive collection and find your dream ride.</p>
+                        <p className="text-black">With new cars added regularly, stay tuned for the latest additions to our collection.</p>
+                    </div>
 
                 </div>
+
+
+                <div className="relative mt-12 w-full">
+                    <div className="absolute w-[300px] h-[300px] rounded-full bg-slate-100 opacity-50 -bottom-20 -left-20 -z-10">
+                    </div>
+                </div>
+
+
+
+
             </div>
 
 

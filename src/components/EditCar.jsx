@@ -142,10 +142,13 @@ export default function EditCar({ carId, setPage }) {
     return (
 
         <div className="w-full h-[89vh] relative  lg:flex-row lg:justify-start lg:items-center">
+
+
+
             <div className=" relative p-4  flex flex-col items-center  justify-start xl:items-center xl:w-[900px] 2xl:w-[1100px]">
 
-                <div className=" w-full bg-gradient-to-r from-blue-800 to-indigo-900 py-1 rounded-md fade-in ">
-                    <p className="text-center text-[15px] py-1 font-bold text-slate-100">Edit car section </p>
+                <div className=" text-center bg-gradient-to-r from-slate-300 to-slate-500 py-2 px-4 rounded-lg opacity-90">
+                    <p className="text-white">Fine-tune your favorite supercar's details and keep our collection accurate</p>
                 </div>
 
                 <div className=" mt-8 w-full h-[30vh] rounded-md max-w-[700px] shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
@@ -234,8 +237,8 @@ export default function EditCar({ carId, setPage }) {
 
 
                         <div className="flex w-full flex-row gap-4 items-center justify-center mt-2">
-                            <Button type="primary" onClick={editCar} className="bg-blue-600 font-semibold hover:scale-110">Submit</Button>
-                            <Button type="primary" className="font-semibold hover:scale-110"  danger>Cancel</Button>
+                            <Button type="primary" onClick={editCar} className="bg-blue-600 text-shadow-glow hover:scale-110">Submit</Button>
+                            <Button type="primary" className=" text-shadow-glow hover:scale-110" danger>Cancel</Button>
                         </div>
 
 

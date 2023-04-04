@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Data from "./services/Api";
 import AddCar from "./components/AddCar";
 import EditCar from "./components/EditCar"
-// import AllCars from ".components/AllCars"
+import AllCars from "./components/AllCars";
 
 // const declaration
 export const HOME_PAGE = "home";
@@ -35,7 +35,7 @@ function App() {
       {(() => {
         switch (page) {
           case HOME_PAGE:
-            return <Home setPage={setPage} setCarId={setCarId} />;
+            return <Home setPage={setPage}  />;
 
 
           case ADD_PAGE:
@@ -45,7 +45,7 @@ function App() {
             return <EditCar carId={carId} setPage={setPage} />
 
           case ALL_PAGE:
-            return <EditCar carId={carId} setPage={setPage} />
+            return <AllCars setCarId={setCarId}  setPage={setPage} />
 
           default:
             return <Home />;

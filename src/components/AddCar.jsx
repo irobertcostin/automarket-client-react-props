@@ -136,9 +136,9 @@ export default function AddCar({ setPage }) {
                     <div className="w-full h-[89vh] relative  lg:flex-row lg:justify-start lg:items-center">
                         <div className=" relative p-4  flex flex-col items-center  justify-between xl:items-center xl:w-[900px] 2xl:w-[1100px]">
 
-                            <div className=" w-full bg-gradient-to-r from-blue-800 to-indigo-900 py-1 rounded-md fade-in ">
-                                <p className="text-center text-[15px] py-1 font-bold text-slate-100">Add car section </p>
-                            </div>
+                        <div className=" text-center w-full bg-gradient-to-r from-slate-300 to-slate-500 py-2 px-4 rounded-lg opacity-90">
+                    <p className="text-white">Submit your dream car to our collection and share it with the world</p>
+                </div>
 
                             <div className=" flex flex-row p-5 h-[450px] gap-6">
 
