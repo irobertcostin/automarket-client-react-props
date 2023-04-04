@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Dropdown, Breadcrumb } from "antd";
 import Home from "./Home";
-import App, { ADD_PAGE, HOME_PAGE,EDIT_PAGE } from "../App";
+import App, { ADD_PAGE, HOME_PAGE,EDIT_PAGE,ALL_PAGE } from "../App";
 
 
 
@@ -29,6 +29,10 @@ export default function Navbar({ setPage, page }) {
         setPage(HOME_PAGE)
     }
 
+    let setAll=()=>{
+        setPage(ALL_PAGE)
+    }
+
 
     useEffect(() => {
 
@@ -50,7 +54,7 @@ export default function Navbar({ setPage, page }) {
         {
             key: '2',
             label: (
-                <a >
+                <a onClick={setAll}>
                     /all-cars
                 </a>
             ),
@@ -62,15 +66,7 @@ export default function Navbar({ setPage, page }) {
                     /add-car
                 </a>
             ),
-        },
-        {
-            key: '4',
-            label: (
-                <a  >
-                    /edit-car
-                </a>
-            ),
-        },
+        }
     ];
 
 
@@ -99,13 +95,10 @@ export default function Navbar({ setPage, page }) {
                         },
 
                         {
-                            title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">all-cars</p>,
+                            title: <p onClick={setAll} className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">all-cars</p>,
                         },
                         {
                             title: <p onClick={setAdd} className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">add-car</p>,
-                        },
-                        {
-                            title: <p  className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">edit-car</p>,
                         }
 
                     ]}
