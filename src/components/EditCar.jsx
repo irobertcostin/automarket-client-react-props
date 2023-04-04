@@ -18,29 +18,35 @@ import {
 } from 'antd';
 
 import carpng from "./images/rolls-car.png"
-import App,{HOME_PAGE} from "../App";
+import App, { HOME_PAGE, ADD_PAGE, EDIT_PAGE } from "../App";
 
-export default function EditCar({ carId,setPage }) {
+export default function EditCar({ carId, setPage }) {
+
+
+    // set pages section 
 
 
     let [currentCar, setCurrentCar] = useState({});
 
 
+    let [brand, setMaker] = useState('');
+    let [model, setModel] = useState('');
+    let [year, setYear] = useState('');
+    let [price, setPrice] = useState('');
+    let [mileage, setMileage] = useState('');
+
+
+
     let api = new Data();
 
     let getCarById = async () => {
-        
+
         let data = await api.getCarById(carId);
         setCurrentCar(data)
         // console.log(carToEdit)
     }
 
 
-    let [maker, setMaker] = useState('');
-    let [model, setModel] = useState('');
-    let [year, setYear] = useState('');
-    let [price, setPrice] = useState('');
-    let [mileage, setMileage] = useState('');
 
 
     let onChangeMaker = (element) => {
@@ -63,7 +69,7 @@ export default function EditCar({ carId,setPage }) {
     };
 
     let onChangeYear = (element) => {
-        setYear((element.$M+1)+"/"+element.$y)
+        setYear((element.$M + 1) + "/" + element.$y)
         // setYear(element)
     };
 
@@ -71,6 +77,19 @@ export default function EditCar({ carId,setPage }) {
 
 
 
+
+    let setAdd = () => {
+        setPage(ADD_PAGE)
+    }
+
+    let setEdit = () => {
+        setPage(EDIT_PAGE)
+    }
+
+
+    let setHome = () => {
+        setPage(HOME_PAGE)
+    }
 
 
 
@@ -94,16 +113,16 @@ export default function EditCar({ carId,setPage }) {
 
 
 
-   
 
-    let editCar = async (car, id) => {
+
+    let editCar = async (car, carId) => {
 
         car = {
-            maker:maker,
-            model:model,
-            mileage:mileage,
-            price:price,
-            year:year
+            maker: brand,
+            model: model,
+            mileage: mileage,
+            price: price,
+            year: year
         }
 
         console.log(car)
@@ -112,106 +131,15 @@ export default function EditCar({ carId,setPage }) {
 
         console.log(data)
         getCarById();
-        
+
 
 
     }
 
-let set=()=>{
-    setPage(HOME_PAGE);
-}
 
 
 
     return (
-        // <div className="w-full  flex flex-col items-center">
-
-
-
-        //     <div className="rounded-lg px-4 py-2  mt-4 mx-4 mb-6">
-        //         <p className="text-center text-[15px] font-bold text-slate-500">Modify your sell offer and take everyone by surprise with your state of the art unregistered modifications</p>
-        //     </div>
-
-
-
-        //     <div className="w-full h-[48vh] p-4 flex flex-col items-center justify-start ">
-        //         <Form className=" flex flex-col bg-white p-7 mt-5 lg:mt-8 max-w-[600px] rounded-lg "
-        //             labelCol={{
-        //                 span: 0,
-        //             }}
-        //             wrapperCol={{
-        //                 span: 50,
-
-        //             }}
-        //             layout="horizontal"
-        //             initialValues={{
-        //                 size: componentSize,
-        //             }}
-        //             onValuesChange={onFormLayoutChange}
-        //             size={componentSize}
-
-        //         >
-
-
-
-        //             <Form.Item label="Model/Maker" className="">
-        //                 <TreeSelect
-        //                     className="w-[250px]"
-        //                     treeData={[
-        //                         {
-        //                             title: 'Light',
-        //                             value: 'light',
-        //                             children: [
-        //                                 {
-        //                                     title: 'Bamboo',
-        //                                     value: 'bamboo',
-        //                                 },
-        //                             ],
-        //                         },
-        //                     ]}
-        //                 />
-        //             </Form.Item>
-
-
-        //             <div className=" flex items-center mb-6">
-        //                 <label className="mr-12">Mileage</label>
-        //                 <InputNumber prefix="km" style={{ width: '100%' }} />
-        //             </div>
-
-
-
-        //             <div className=" flex items-center mb-6">
-        //                 <label className="mr-16">Price</label>
-        //                 <InputNumber
-        //                     defaultValue={1000}
-        //                     formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-        //                     parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-        //                     onChange={onChangePrice}
-        //                     style={{ width: '100%' }}
-        //                 />
-        //             </div>
-
-        //             <div className=" flex items-center mb-6">
-        //                 <label className="mr-[68px]">Year </label>
-        //                 <DatePicker picker="month" bordered={true} />
-        //             </div>
-
-
-
-        //             <div>
-        //                 <Button type="primary" className="bg-blue-600 font-semibold">Edit ad</Button>
-        //             </div>
-
-
-
-
-
-        //         </Form>
-        //     </div>
-
-
-
-        // </div>
 
         <div className="w-full h-[89vh] relative  lg:flex-row lg:justify-start lg:items-center">
             <div className=" relative p-4  flex flex-col items-center  justify-start xl:items-center xl:w-[900px] 2xl:w-[1100px]">
@@ -307,7 +235,7 @@ let set=()=>{
 
                         <div className="flex w-full flex-row gap-4 items-center justify-center mt-2">
                             <Button type="primary" onClick={editCar} className="bg-blue-600 font-semibold hover:scale-110">Submit</Button>
-                            <Button type="primary" className="font-semibold hover:scale-110" onClick={set} danger>Cancel</Button>
+                            <Button type="primary" className="font-semibold hover:scale-110"  danger>Cancel</Button>
                         </div>
 
 
