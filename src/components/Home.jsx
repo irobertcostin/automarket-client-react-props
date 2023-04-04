@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Filters from "./Filters";
-import HomeCars from "./HomeCars";
+import HomeCars from "./AllCars";
 import Data from "../services/Api";
 import Marquee from "react-fast-marquee";
 
@@ -93,8 +93,7 @@ export default function Home({ setPage, setCarId }) {
                 </div>
 
 
-                {/* <HomeCars cars={cars} setPage={setPage} setCarId={setCarId} /> */}
-
+                
 
 
 
