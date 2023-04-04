@@ -11,36 +11,9 @@ import App, { ADD_PAGE, HOME_PAGE } from "../App";
 
 export default function Navbar({ setPage, page }) {
 
-    // menu button items
-    const items = [
-        {
-            key: '1',
-            label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                    1st menu item
-                </a>
-            ),
-        },
-        {
-            key: '2',
-            label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                    2nd menu item
-                </a>
-            ),
-        },
-        {
-            key: '3',
-            label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                    3rd menu item
-                </a>
-            ),
-        },
-    ];
-
-    //breadcrumb
    
+    //breadcrumb
+
 
 
 
@@ -58,6 +31,43 @@ export default function Navbar({ setPage, page }) {
 
     }, [])
 
+     // menu button items
+     const items = [
+        {
+            key: '1',
+            label: (
+                <a target="_blank" >
+                    /home
+                </a>
+            ),
+        },
+        {
+            key: '2',
+            label: (
+                <a target="_blank" >
+                    /all-cars
+                </a>
+            ),
+        },
+        {
+            key: '3',
+            label: (
+                <a target="_blank" onClick={set}>
+                    /add-car
+                </a>
+            ),
+        },
+        {
+            key: '4',
+            label: (
+                <a target="_blank" >
+                    /edit-car
+                </a>
+            ),
+        },
+    ];
+
+
 
 
 
@@ -68,17 +78,20 @@ export default function Navbar({ setPage, page }) {
             <div className="h-full shadow-[inset_-8px_-8px_30px_#7c3aed] flex flex-row items-center justify-start gap-4 lg:h-[80px]">
 
                 <div className=" ml-4 p-2 cursor-pointer  rounded-lg duration-500 sm:ml-4  hover:scale-110 hover:bg-gradient-to-r from-slate-300 to-slate-500 ">
-                    
+
                     <a href="" class=" text-white p-4  text-shadow-glow">SupercarSpotlight</a>
                 </div>
 
-                
 
-                <Breadcrumb 
-                separator={<span style={{ color: 'white',opacity: 0.8 }}>/</span>}
-                className=" ml-12 hidden md:flex"
+
+                <Breadcrumb
+                    separator={<span style={{ color: 'white', opacity: 0.8 }}>/</span>}
+                    className=" ml-12 hidden md:flex"
                     items={[
-                
+                        {
+                            title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">home</p>,
+                        },
+
                         {
                             title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">all-cars</p>,
                         },
@@ -88,9 +101,9 @@ export default function Navbar({ setPage, page }) {
                         {
                             title: <p className="cursor-pointer text-slate-400 hover:text-slate-100 duration-100 ease-in-out">edit-car</p>,
                         }
-                        
+
                     ]}
-                    
+
                 />
 
 
