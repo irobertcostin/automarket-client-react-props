@@ -1,5 +1,5 @@
 
-import { Empty } from "antd";
+import { Empty, Spin } from "antd";
 import React, { useEffect, useState } from 'react';
 import Data from "../services/Api";
 import {
@@ -36,13 +36,19 @@ export default function EditCar({ carId, setPage }) {
     let [mileage, setMileage] = useState('');
 
 
+    let [isLoading, setIsLoading] = useState(false);
+
+
 
     let api = new Data();
 
     let getCarById = async () => {
 
+        setIsLoading(true)
+
         let data = await api.getCarById(carId);
         setCurrentCar(data)
+        setIsLoading(false)
         // console.log(carToEdit)
     }
 
@@ -74,10 +80,6 @@ export default function EditCar({ carId, setPage }) {
     };
 
 
-
-
-
-
     let setAdd = () => {
         setPage(ADD_PAGE)
     }
@@ -94,17 +96,6 @@ export default function EditCar({ carId, setPage }) {
     let setAll = () => {
         setPage(ALL_PAGE)
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     const [componentSize, setComponentSize] = useState('default');
@@ -130,7 +121,7 @@ export default function EditCar({ carId, setPage }) {
 
         let data = await api.editCar(car, carId);
 
-        console.log(data)
+
         getCarById();
 
 
@@ -155,40 +146,46 @@ export default function EditCar({ carId, setPage }) {
                     <p className="text-slate-800">Fine-tune your favorite supercar's details and keep our collection accurate</p>
                 </div>
 
-                <div className=" border border-fuchsia-500 mt-2 w-full h-[30vh] flex flex-row overflow-hidden justify-between rounded-md max-w-[700px] md:mt-2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
+                {
+                    isLoading ?
+                        <div className=" h-[90vh] flex flex-col justify-center items-center ">
+                            <Spin size="large" />
+                        </div>
+                        : <div className="   mt-2 w-full h-[30vh] flex flex-row overflow-hidden justify-between rounded-md max-w-[700px] md:mt-2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
 
-                    <div className=" flex flex-col justify-center lg:pl-4">
-                        <div className="relative pl-4 py-1 bg-gradient-to-r from-sky-800 to-violet-700 bg-clip-text text-transparent font-semibold text-xl md:text-3xl md:px-14 lg:text-3xl lg:pl-8 lg:font-semibold">
-                            <p className=" md:min-w-[250px]">{currentCar.maker}</p>
-                            <p>{currentCar.model}</p>
+                            <div className=" flex flex-col justify-center lg:pl-4">
+                                <div className="relative pl-4 py-1 bg-gradient-to-r from-sky-800 to-violet-700 bg-clip-text text-transparent font-semibold text-xl md:text-3xl md:px-14 lg:text-3xl lg:pl-8 lg:font-semibold">
+                                    <p className=" md:min-w-[250px]">{currentCar.maker}</p>
+                                    <p>{currentCar.model}</p>
+                                </div>
+
+                                <div className=" pl-4  text-slate-600  md:text-xl md:px-14 lg:text-xl lg:pl-8 lg:font-semibold">
+                                    <p>Price : <span className="text-green-600 font-semibold">$ {currentCar.price}</span></p>
+                                    <p>Reg. year : {currentCar.year}</p>
+                                    <p>Mileage (km) : {currentCar.mileage} </p>
+                                </div>
+                            </div>
+
+                            <div className=" flex justify-center items-center w-[50%]">
+                                <img className="  right-0 top-0 w-full" src={carpng} />
+                            </div>
+
+
                         </div>
 
-                        <div className=" pl-4  text-slate-600  md:text-xl md:px-14 lg:text-xl lg:pl-8 lg:font-semibold">
-                            <p>Price : <span className="text-green-600 font-semibold">$ {currentCar.price}</span></p>
-                            <p>Reg. year : {currentCar.year}</p>
-                            <p>Mileage (km) : {currentCar.mileage} </p>
-                        </div>
-                    </div>
-
-                    <div className=" flex justify-center items-center w-[50%]">
-                        <img className="  right-0 top-0 w-full" src={carpng} />
-                    </div>
-
-
-                </div>
-
+                }
 
 
                 <div className=" flex flex-row px-5 h-[450px] gap-6">
 
-                    <div className="add-info-inp">
+                    <div className="add-info-inp flex flex-col">
                         <p className="mt-12">Maker</p>
                         <p>Model</p>
                         <p>Mileage</p>
                         <p>Price</p>
-                        <p className="mb-28">Registration</p>
+                        <p className="mb-40">Registration</p>
                     </div>
-                    <Form className=" add-form flex flex-col  px-12 py-12 w-auto rounded-lg"
+                    <Form className=" add-form flex flex-col  px-12 py-12  w-auto rounded-lg"
                         labelCol={{
                             span: 0,
                         }}
@@ -242,8 +239,9 @@ export default function EditCar({ carId, setPage }) {
 
 
 
-                        <div className="flex w-full flex-row gap-4 items-center justify-center mt-2">
+                        <div className="flex md:w-[00px]  flex-row gap-4 items-center justify-center mt-2 mr-4">
                             <Button type="primary" onClick={editCar} className="bg-blue-600 text-shadow-glow hover:scale-110">Submit</Button>
+                            <Button type="primary" onClick={editCar} danger className="bg-blue-600 text-shadow-glow hover:scale-110">Delete</Button>
                             <Button type="primary" className=" text-shadow-glow hover:scale-110" onClick={setAll} danger>Cancel</Button>
                         </div>
 
