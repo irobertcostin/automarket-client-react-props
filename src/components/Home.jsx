@@ -46,8 +46,11 @@ export default function Home({ setPage }) {
     let [makers, setMakers] = useState([]);
     let [makerCount, setMakerCount] = useState();
 
+    let [mcap,setMcap]=useState();
 
 
+
+    
 
 
     let api = new Data();
@@ -76,6 +79,16 @@ export default function Home({ setPage }) {
 
 
 
+    // nu merge
+    let getMCap = ()=>{
+
+        
+        let sum = cars.reduce((accumulator, car)=> accumulator + car.price,0);
+        console.log(sum);
+        
+    }
+
+
 
 
 
@@ -84,7 +97,7 @@ export default function Home({ setPage }) {
 
         getCars();
         getMakers();
-
+        getMCap();
     }, [])
 
 
@@ -147,7 +160,9 @@ export default function Home({ setPage }) {
                 </div>
 
 
-
+                <div>
+                    <Filters makers={makers}/>
+                </div>
             
             </div>
 

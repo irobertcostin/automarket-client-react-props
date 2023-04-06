@@ -40,7 +40,15 @@ export default function EditCar({ carId, setPage }) {
 
 
 
+
+
+
+
     let api = new Data();
+
+
+
+
 
     let getCarById = async () => {
 
@@ -51,6 +59,13 @@ export default function EditCar({ carId, setPage }) {
         setIsLoading(false)
         // console.log(carToEdit)
     }
+
+
+
+
+    
+
+
 
 
 
@@ -116,17 +131,20 @@ export default function EditCar({ carId, setPage }) {
             price: price,
             year: year
         }
-
-        console.log(car)
-
-        let data = await api.editCar(car, carId);
-
-
+        await api.editCar(car, carId);
+        
         getCarById();
-
-
-
     }
+
+
+
+    let deleteCar = async ()=>{
+
+        await api.deleteCar(carId)
+        setPage(ALL_PAGE)
+    }
+
+
 
 
     useEffect(() => {
@@ -206,11 +224,11 @@ export default function EditCar({ carId, setPage }) {
 
 
                         <Form.Item className=" flex ">
-                            <Input className=" " onChange={onChangeMaker} style={{ width: '200px' }} placeholder="Maker" />
+                            <Input className="border-1 border-gray-300 rounded-lg " onChange={onChangeMaker}  style={{ width: '200px' }} placeholder="Maker" />
                         </Form.Item>
 
                         <Form.Item className=" flex ">
-                            <Input className="" onChange={onChangeModel} style={{ width: '200px' }} placeholder="Model" />
+                            <Input className="border-1 border-gray-300 rounded-lg " onChange={onChangeModel} style={{ width: '200px' }} placeholder="Model" />
                         </Form.Item>
 
 
@@ -241,7 +259,7 @@ export default function EditCar({ carId, setPage }) {
 
                         <div className="flex md:w-[00px]  flex-row gap-4 items-center justify-center mt-2 mr-4">
                             <Button type="primary" onClick={editCar} className="bg-blue-600 text-shadow-glow hover:scale-110">Submit</Button>
-                            <Button type="primary" onClick={editCar} danger className="bg-blue-600 text-shadow-glow hover:scale-110">Delete</Button>
+                            <Button type="primary" onClick={deleteCar} danger className="bg-blue-600 text-shadow-glow hover:scale-110">Delete</Button>
                             <Button type="primary" className=" text-shadow-glow hover:scale-110" onClick={setAll} danger>Cancel</Button>
                         </div>
 
