@@ -56,7 +56,8 @@ export default function AddCar({ setPage }) {
 
 
     const onChangePrice = (price) => {
-        setPrice(price)
+        const number = parseInt(+price,10)
+        setPrice(number)
 
     };
 
@@ -91,7 +92,7 @@ export default function AddCar({ setPage }) {
             maker: maker,
             model: model,
             year: year,
-            price: `${price}`,
+            price: price,
             mileage: mileage
         }
 
@@ -171,11 +172,11 @@ export default function AddCar({ setPage }) {
 
 
                                     <Form.Item className=" flex ">
-                                        <Input onChange={onChangeMaker} className=" " style={{ width: '200px' }} placeholder="Maker" />
+                                        <Input className="border-1 border-gray-300 rounded-lg " onChange={onChangeMaker} style={{ width: '200px' }} placeholder="Maker" />
                                     </Form.Item>
 
                                     <Form.Item className=" flex ">
-                                        <Input onChange={onChangeModel} className="" style={{ width: '200px' }} placeholder="Model" />
+                                        <Input className="border-1 border-gray-300 rounded-lg " onChange={onChangeModel} style={{ width: '200px' }} placeholder="Model" />
                                     </Form.Item>
 
 

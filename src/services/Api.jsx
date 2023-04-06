@@ -128,4 +128,25 @@ export default class Data {
 
     }
 
+
+    async deleteCar(id){
+
+        try {
+
+            let data = await this.api(`/all-cars/delete/id=${id}`,"DELETE")
+            let response = await data.json();
+
+            if(data.status===200){
+                message.success(response, [5], console.log(""))  
+            }else{
+                message.error(response.error.message, [5], console.log(""))
+            }
+            
+        } catch (error) {
+            message.error(error, [3], console.log(""))
+        }
+
+
+    }
+
 }
