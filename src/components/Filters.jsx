@@ -15,7 +15,7 @@ import { Cascader, Empty } from 'antd';
 
 export default function Filters({ makers }) {
 
-    let [mobileFilters, setMobileFilters] = useState(true)
+    let [mobileFilters, setMobileFilters] = useState(true);
 
 
     let [sortDiv, setSortDiv] = useState(false)

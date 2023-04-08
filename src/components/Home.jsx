@@ -48,7 +48,7 @@ export default function Home({ setPage }) {
 
     let [mcap,setMcap]=useState();
 
-
+    
 
     
 
@@ -69,9 +69,19 @@ export default function Home({ setPage }) {
     let getCars = async () => {
 
         let response = await api.getCars();
+        
+
+        
+        
+        setMcap( response.cars.reduce((accumulator, car)=> {
+
+            return accumulator + car.price
+
+        },0));
+
         setCars(response.cars);
         setCarCount(response.cars.length)
-        // setMakerCount(response.cars.length);
+        
 
 
     }
@@ -79,14 +89,8 @@ export default function Home({ setPage }) {
 
 
 
-    // nu merge
-    let getMCap = ()=>{
+    
 
-        
-        let sum = cars.reduce((accumulator, car)=> accumulator + car.price,0);
-        console.log(sum);
-        
-    }
 
 
 
@@ -96,8 +100,9 @@ export default function Home({ setPage }) {
     useEffect(() => {
 
         getCars();
+    
         getMakers();
-        getMCap();
+        
     }, [])
 
 
@@ -106,9 +111,9 @@ export default function Home({ setPage }) {
             <div className="relative flex flex-col min-h-[90vh]">
 
                 <Marquee className="bg-red-600 text-slate-100 text-xs md:text-md lg:text-xl" pauseOnHover={true} gradientWidth={50} speed={50} delay={1} gradient={true} gradientColor={[255, 0, 0]}>
-                    <p >{carCount}+ supercars</p>
-                    <p className="ml-[5vh]">Over {makerCount} exquisite makers</p>
-
+                    <p ><span className="text-green-300">{carCount}+</span>  supercars</p>
+                    <p className="ml-[5vh]">Over <span className="text-green-300">{makerCount}</span>  exquisite makers</p>
+                    <p className="ml-[5vh]">Collection market cap: <span className="text-green-300">$ {mcap}</span></p>
                 </Marquee>
 
                 <div className="test-drive-div relative  flex flex-col items-center justify-end">
@@ -160,10 +165,10 @@ export default function Home({ setPage }) {
                 </div>
 
 
-                <div>
+                {/* <div>
                     <Filters makers={makers}/>
                 </div>
-            
+             */}
             </div>
 
 

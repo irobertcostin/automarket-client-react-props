@@ -66,7 +66,7 @@ export default class Data {
     async addCar(car) {
         try {
 
-            
+
             let data = await this.api('/new-car', "POST", car)
 
             if (data.status === 201) {
@@ -90,9 +90,9 @@ export default class Data {
 
     async getCarById(id) {
         try {
-            
+
             let data = await this.api(`/all-cars/car-by-id/id=${id}`)
-            
+
 
             if (data.status === 200) {
                 let resp = await data.json();
@@ -109,15 +109,15 @@ export default class Data {
         }
     }
 
-    async editCar(car,id){
+    async editCar(car, id) {
 
         try {
-            let data = await this.api(`/edit-car/car-id=${id}`,"PUT",car)
+            let data = await this.api(`/edit-car/car-id=${id}`, "PUT", car)
 
-            if(data.status===201){
+            if (data.status === 201) {
                 let response = await data.json();
                 message.success(response, [5], console.log(""))
-            }else {
+            } else {
                 let response = await data.json();
                 message.error(response.error.message, [5], console.log(""))
             }
@@ -129,19 +129,39 @@ export default class Data {
     }
 
 
-    async deleteCar(id){
+    async deleteCar(id) {
 
         try {
 
-            let data = await this.api(`/all-cars/delete/id=${id}`,"DELETE")
+            let data = await this.api(`/all-cars/delete/id=${id}`, "DELETE")
             let response = await data.json();
 
-            if(data.status===200){
-                message.success(response, [5], console.log(""))  
-            }else{
+            if (data.status === 200) {
+                message.success(response, [5], console.log(""))
+            } else {
                 message.error(response.error.message, [5], console.log(""))
             }
-            
+
+        } catch (error) {
+            message.error(error, [3], console.log(""))
+        }
+
+
+    }
+
+
+
+    async getModelsByMaker(maker) {
+
+        try {
+            let data = await this.api(`/all-cars/models-by-maker/maker=${maker}`)
+            let response = await data.json();
+            if (data.status === 200) {
+                return response;
+            } else {
+                message.error(response.error.message, [5], console.log(""))
+            }
+
         } catch (error) {
             message.error(error, [3], console.log(""))
         }
