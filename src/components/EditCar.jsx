@@ -169,7 +169,9 @@ export default function EditCar({ carId, setPage }) {
                         <div className=" h-[90vh] flex flex-col justify-center items-center ">
                             <Spin size="large" />
                         </div>
-                        : <div className="   mt-2 w-full h-[30vh] flex flex-row overflow-hidden justify-between rounded-md max-w-[700px] md:mt-2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
+                        : 
+                        
+                        <div className="   mt-2 w-full h-[30vh] flex flex-row overflow-hidden justify-between rounded-md max-w-[700px] md:mt-2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
 
                             <div className=" flex flex-col justify-center lg:pl-4">
                                 <div className="relative pl-4 py-1 bg-gradient-to-r from-sky-800 to-violet-700 bg-clip-text text-transparent font-semibold text-xl md:text-3xl md:px-14 lg:text-3xl lg:pl-8 lg:font-semibold">
