@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import CarRow from "./CarRow"
 import { Empty } from 'antd';
 import App, { EDIT_PAGE } from "../App";
-import Data from "../services/Api";
+
 import { Space, Spin } from 'antd';
 import { Context } from "../context/Context";
 
@@ -17,113 +17,99 @@ export default function AllCars({ setPage, setCarId, carId }) {
     let [data,setData]=useContext(Context)
 
 
-
-
-
-    let [cars, setCars] = useState(data);
-    let [carCount, setCarCount] = useState();
-
     let [isLoading, setIsLoading] = useState(false);
 
+
+    
+    let [cars, setCars] = useState(data);
+    let [carCount, setCarCount] = useState(cars.length);
     let [makers, setMakers] = useState([]);
+
+
+
+    
+    // sort function for data
+    // let handleAscRows = (arr) => {
+    //     let sortedNumbers = [...arr].sort((a, b) => a.maker > b.maker ? 1 : -1)
+    //     setCars(sortedNumbers)
+    // }
+
+
+
+    // let handleAscMakers = (arr) =>{
+    //     let sortedMakers = [...arr].sort((a,b)=>a > b ? 1: -1 )
+    //     return sortedMakers;
+    // }
+
+
+
+    let getMakers =  () => {
+        let arr = cars.map(e=>e.maker)
+        let uniqueArr = [...new Set(arr)]
+        setMakers(uniqueArr);
+    }
+
+
+    let getCars =  () => {
+        
+        getMakers();
+        
+    }
+
+
+
 
     let [chosenMaker, setChosenMaker] = useState();
     let [modelsByMaker, setModelsByMaker] = useState([]);
 
-    let [displayed,setDisplayed]=useState([]);
-
-    let api = new Data();
 
 
-    let handleSort = (arr) => {
-
-        let sortedNumbers = [...arr].sort((a, b) => a.maker > b.maker ? 1 : -1)
-        // console.log(sortedNumbers)
-        setCars(sortedNumbers)
-
-    }
+    let [displayed,setDisplayed]=useState(cars);
 
 
 
 
-
-    let getCars = async () => {
-        setIsLoading(true)
-        // let response = await api.getCars();
-        handleSort(data)
-        setIsLoading(false)
-        // setCarCount(response.cars.length)
-        setCarCount(data.length)
-
-
-
-    }
-
-    let getMakers = async () => {
-        let response = await api.getMakers();
-
-        setMakers(response)
-
-    }
-
-
-    let getModelsByMaker = async (chosenMaker) => {
-
-        let data = await api.getModelsByMaker(chosenMaker);
-        setModelsByMaker(data);
-        return data;
-
-    }
-
-
-
-
+    // click on maker in filters list, display all cars by maker, display all models in filters section after removing duplicates
+    
     let setMakerClick = async (element) => {
         
         let obj = element.target.textContent
         setChosenMaker(obj)
-        let x = await getModelsByMaker(obj);
-        setModelsByMaker(x);
         
+        // daca schimbam aici obj cu chosenMaker , nu mai merge
+        let arr = cars.filter(e=>e.maker==obj)
+        setDisplayed(arr);
+        setCarCount(arr.length)
+
+        let models = arr.map(e=>e.model)
+        let uniqueArr = [...new Set(models)]
+        // let x = await getModelsByMaker(obj);
+        setModelsByMaker(uniqueArr);
         
     }
 
 
+
+    // click on model, display the cars by model
     let onCheckModel=(element)=>{
 
-        console.log(element.target.textContent);
         let arr = cars.filter(e=>e.model===element.target.textContent)
-        console.log(arr);
         setDisplayed(arr);
+        setCarCount(arr.length)
 
     }
 
 
 
-
+    // set page
     let set = () => {
         setPage(EDIT_PAGE)
     }
 
 
-    useEffect(() => {
-
-        getCars();
-        getMakers();
-        
-    }, [])
-
-
-
-
     // filters section
     let [mobileFilters, setMobileFilters] = useState(true);
     let [sortDiv, setSortDiv] = useState(false)
-
-
-
-
-
 
 
     let setMF = () => {
@@ -135,13 +121,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
     }
 
 
-    // let getMakers = () => {
-    //     console.log(makers);
-    // }
-
-
     let sortBtn = () => {
-
         if (!sortDiv) {
             setSortDiv(true)
         } else {
@@ -150,7 +130,9 @@ export default function AllCars({ setPage, setCarId, carId }) {
     }
 
 
-
+    useEffect(() => {
+        getCars();
+    }, [data])
 
 
 
@@ -222,7 +204,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                                     ?
                                                                     makers.map(element =>
                                                                         <li>
-                                                                            <p className="block px-2 py-2 cursor-pointer" onClick={setMakerClick}>{element}</p>
+                                                                            <p className="block px-2 py-2 cursor-pointer" key={element} onClick={setMakerClick}>{element}</p>
                                                                         </li>)
                                                                     : <Empty />
                                                             }
@@ -256,7 +238,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                                             modelsByMaker.map(e =>
 
                                                                                 <div className="flex items-center">
-                                                                                    <label for="filter-mobile-color-0" onClick={onCheckModel}  className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
+                                                                                    <label for="filter-mobile-color-0" onClick={onCheckModel} key={e}   className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
                                                                                 </div>
                                                                             )
                                                                             : <Empty />
@@ -376,7 +358,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                             ?
                                                             makers.map(element =>
                                                                 <li>
-                                                                    <a className="block px-2 cursor-pointer" onClick={setMakerClick}>{element}</a>
+                                                                    <a className="block px-2 cursor-pointer" key={element}  onClick={setMakerClick}>{element}</a>
                                                                 </li>)
                                                             : <Empty />
                                                     }
@@ -408,7 +390,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                                     modelsByMaker.map(e =>
 
                                                                         <div className="flex items-center">
-                                                                            <label for="filter-mobile-color-0" onClick={onCheckModel} className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
+                                                                            <label for="filter-mobile-color-0" onClick={onCheckModel} key={e} className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
                                                                         </div>
                                                                     )
                                                                     : <Empty />
@@ -441,7 +423,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                                             <th scope="col" className="px-2 py-4">Price</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
+                                                                    <tbody >
                                                                     
                                                                         {
                                                                             displayed.map(element => <CarRow key={element.id} element={element} set={set} setCarId={setCarId}></CarRow>)

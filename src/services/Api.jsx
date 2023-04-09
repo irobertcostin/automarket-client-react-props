@@ -72,7 +72,7 @@ export default class Data {
             if (data.status === 201) {
                 let resp = await data.json();
 
-                message.success("Your car has been posted", [3], console.log(resp))
+                message.success("Your car has been posted", [3], console.log(""))
                 return resp;
             } else {
                 let resp = await data.json();
@@ -116,7 +116,7 @@ export default class Data {
 
             if (data.status === 201) {
                 let response = await data.json();
-                message.success(response, [5], console.log(""))
+                return response;
             } else {
                 let response = await data.json();
                 message.error(response.error.message, [5], console.log(""))

@@ -178,7 +178,11 @@ export default function Home({ setPage }) {
 
 
 // a search bar 
-
+// sort by name in displayed lists filters, and content
+// sort by funtion 
+// +- section for models
 // when breadcrumb active - changed color
+
+
 
 

@@ -1,6 +1,6 @@
 
 import { Empty } from "antd";
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
     DatePicker,
     Button,
@@ -19,12 +19,15 @@ import { LeftOutlined } from "@ant-design/icons";
 import App, { HOME_PAGE } from "../App";
 import Data from "../services/Api";
 import Classicad from "../components/images/brands/Classicad.png"
-
+import { Context } from "../context/Context";
 
 
 
 
 export default function AddCar({ setPage }) {
+
+    let [data,setData]=useContext(Context)
+    
 
     let api = new Data();
 
@@ -98,9 +101,19 @@ export default function AddCar({ setPage }) {
 
         let resp = await api.addCar(car);
 
+        
+
         if (resp.maker) {
             setIsAdded(true)
+
+
+            let arr = [...data];
+            arr.push(resp);
+            setData(arr);
         }
+
+        
+        
 
     }
 
