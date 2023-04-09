@@ -1,6 +1,6 @@
 
 import { Empty, Spin } from "antd";
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Data from "../services/Api";
 import {
     DatePicker,
@@ -19,8 +19,18 @@ import {
 
 import carpng from "./images/rolls-car.png"
 import App, { HOME_PAGE, ADD_PAGE, EDIT_PAGE, ALL_PAGE } from "../App";
+import { Context } from "../context/Context";
+
+
+
+
+
+
 
 export default function EditCar({ carId, setPage }) {
+
+    let [data,setData]=useContext(Context)
+    
 
 
     // set pages section 
@@ -39,25 +49,19 @@ export default function EditCar({ carId, setPage }) {
     let [isLoading, setIsLoading] = useState(false);
 
 
+    
 
 
 
 
 
-    let api = new Data();
-
-
-
-
-
-    let getCarById = async () => {
-
+    let getCarById =  () => {
         setIsLoading(true)
 
-        let data = await api.getCarById(carId);
-        setCurrentCar(data)
+        let arr = data.filter(e=>e.id==carId)
+        setCurrentCar(arr[0])
+
         setIsLoading(false)
-        // console.log(carToEdit)
     }
 
 
@@ -122,6 +126,11 @@ export default function EditCar({ carId, setPage }) {
 
 
 
+
+
+
+    let api = new Data();
+
     let editCar = async () => {
 
         let car = {
@@ -131,9 +140,18 @@ export default function EditCar({ carId, setPage }) {
             price: price,
             year: year
         }
-        await api.editCar(car, carId);
+
+
+
+        let x = await api.editCar(car, carId);
+
+        let arr = data.filter(e=>e.id!==x.id)
+
+        arr.push(x);
+
+        setData(arr);
         
-        getCarById();
+        setCurrentCar(x);
     }
 
 

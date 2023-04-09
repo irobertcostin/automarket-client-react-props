@@ -50,7 +50,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
     }
 
 
-    let getCars = async () => {
+    let getCars =  () => {
         
         getMakers();
         

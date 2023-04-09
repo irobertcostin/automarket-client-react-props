@@ -116,7 +116,7 @@ export default class Data {
 
             if (data.status === 201) {
                 let response = await data.json();
-                message.success(response, [5], console.log(""))
+                return response;
             } else {
                 let response = await data.json();
                 message.error(response.error.message, [5], console.log(""))
