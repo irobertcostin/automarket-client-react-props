@@ -156,9 +156,16 @@ export default function EditCar({ carId, setPage }) {
 
 
 
+
+
+
+
+
     let deleteCar = async ()=>{
 
         await api.deleteCar(carId)
+        let arr = data.filter(e=>e.id!==carId)
+        setData(arr)
         setPage(ALL_PAGE)
     }
 

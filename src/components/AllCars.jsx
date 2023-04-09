@@ -204,7 +204,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                                     ?
                                                                     makers.map(element =>
                                                                         <li>
-                                                                            <p className="block px-2 py-2 cursor-pointer" onClick={setMakerClick}>{element}</p>
+                                                                            <p className="block px-2 py-2 cursor-pointer" key={element} onClick={setMakerClick}>{element}</p>
                                                                         </li>)
                                                                     : <Empty />
                                                             }
@@ -238,7 +238,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                                             modelsByMaker.map(e =>
 
                                                                                 <div className="flex items-center">
-                                                                                    <label for="filter-mobile-color-0" onClick={onCheckModel}  className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
+                                                                                    <label for="filter-mobile-color-0" onClick={onCheckModel} key={e}   className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
                                                                                 </div>
                                                                             )
                                                                             : <Empty />
@@ -358,7 +358,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                             ?
                                                             makers.map(element =>
                                                                 <li>
-                                                                    <a className="block px-2 cursor-pointer" onClick={setMakerClick}>{element}</a>
+                                                                    <a className="block px-2 cursor-pointer" key={element}  onClick={setMakerClick}>{element}</a>
                                                                 </li>)
                                                             : <Empty />
                                                     }
@@ -390,7 +390,7 @@ export default function AllCars({ setPage, setCarId, carId }) {
                                                                     modelsByMaker.map(e =>
 
                                                                         <div className="flex items-center">
-                                                                            <label for="filter-mobile-color-0" onClick={onCheckModel} className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
+                                                                            <label for="filter-mobile-color-0" onClick={onCheckModel} key={e} className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer">{e}</label>
                                                                         </div>
                                                                     )
                                                                     : <Empty />
