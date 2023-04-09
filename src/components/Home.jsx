@@ -176,13 +176,8 @@ export default function Home({ setPage }) {
     )
 }
 
-// Progress section
-
 
 // a search bar 
-// a filters section in allcars 
-
-
 
 // when breadcrumb active - changed color
 

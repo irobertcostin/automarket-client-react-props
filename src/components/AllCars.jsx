@@ -1,13 +1,26 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import CarRow from "./CarRow"
 import { Empty } from 'antd';
 import App, { EDIT_PAGE } from "../App";
 import Data from "../services/Api";
 import { Space, Spin } from 'antd';
+import { Context } from "../context/Context";
+
+
+
+
+
+
 
 export default function AllCars({ setPage, setCarId, carId }) {
 
-    let [cars, setCars] = useState([]);
+    let [data,setData]=useContext(Context)
+
+
+
+
+
+    let [cars, setCars] = useState(data);
     let [carCount, setCarCount] = useState();
 
     let [isLoading, setIsLoading] = useState(false);
@@ -36,10 +49,11 @@ export default function AllCars({ setPage, setCarId, carId }) {
 
     let getCars = async () => {
         setIsLoading(true)
-        let response = await api.getCars();
-        handleSort(response.cars)
+        // let response = await api.getCars();
+        handleSort(data)
         setIsLoading(false)
-        setCarCount(response.cars.length)
+        // setCarCount(response.cars.length)
+        setCarCount(data.length)
 
 
 

@@ -5,6 +5,7 @@ import Data from "./services/Api";
 import AddCar from "./components/AddCar";
 import EditCar from "./components/EditCar"
 import AllCars from "./components/AllCars";
+import { Context,EmployeeProvider } from "./context/Context";
 
 // const declaration
 export const HOME_PAGE = "home";
@@ -29,7 +30,7 @@ function App() {
 
 
   return (
-    <>
+    <EmployeeProvider>
       <Navbar setPage={setPage} page={page} />
 
       {(() => {
@@ -54,7 +55,7 @@ function App() {
 
       
 
-    </>
+    </EmployeeProvider>
   );
 }
 

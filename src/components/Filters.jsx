@@ -1,5 +1,5 @@
 import Home from "./Home";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Data from "../services/Api";
 // import Forms from "@tailwindcss/forms"
 import { Cascader, Empty } from 'antd';
@@ -11,9 +11,12 @@ import { Cascader, Empty } from 'antd';
 
 
 
-
-
 export default function Filters({ makers }) {
+
+
+
+
+
 
     let [mobileFilters, setMobileFilters] = useState(true);
 
@@ -45,6 +48,9 @@ export default function Filters({ makers }) {
             setSortDiv(false)
         }
     }
+
+
+   
 
 
     return (
