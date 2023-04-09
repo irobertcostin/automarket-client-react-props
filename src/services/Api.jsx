@@ -72,7 +72,7 @@ export default class Data {
             if (data.status === 201) {
                 let resp = await data.json();
 
-                message.success("Your car has been posted", [3], console.log(resp))
+                message.success("Your car has been posted", [3], console.log(""))
                 return resp;
             } else {
                 let resp = await data.json();

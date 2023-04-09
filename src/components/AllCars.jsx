@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import CarRow from "./CarRow"
 import { Empty } from 'antd';
 import App, { EDIT_PAGE } from "../App";
-import Data from "../services/Api";
+
 import { Space, Spin } from 'antd';
 import { Context } from "../context/Context";
 
